@@ -20,17 +20,17 @@ let gameState = {
 const table = document.getElementsByTagName('table')[0]
 
 function makeGrid(){
-    for (let i = 0; i < 21; i++){
+    for (let i = 0; i < 5; i++){
         const row = document.createElement('tr')
         table.appendChild(row)
-        for (let i = 0; i < 21; i++){
+        for (let i = 0; i < 5; i++){
             const cell = document.createElement('td')
             row.appendChild(cell)
         }
     }
 }
 
-table.addEventListener('click', makeGrid)
+makeGrid()
 
 // Make things do stuff when the user does things
 
