@@ -6,8 +6,8 @@
     
 html {
     background-color: #222;
-    color: white;
-    text-shadow: 10px 10px 2px rgb(12, 12, 12);
+    color: #CCC;
+    text-shadow: 10px 10px 3px rgb(12, 12, 12);
     
 }
    
@@ -25,14 +25,23 @@ body {
     background-color: #CCC;
     width: 80vmin;
     height: 80vmin;
-    box-shadow: 15px 15px 2px rgb(12, 12, 12);
+    box-shadow: 15px 15px 5px rgb(12, 12, 12);
+}
+
+table {
+    border-collapse: collapse;
 }
 
 td {
     height: 16vmin;
     width: 16vmin;
     background-color: lightgray;
-    border: #222 solid 2px;
-    margin: 0;
+    border: rgb(170, 170, 170) solid .2vmin;
     
+}
+
+.apple {
+    background-color: red;
+    border-radius: 50%;
+
 }

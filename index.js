@@ -5,18 +5,21 @@ let snake = {
   }
 
 let gameState = {
+    score: 0,
     apple: [],
     snake: snake
 }
 
 
 
-// Functions to manipulate Game Object
+// Functions to manipulate Game Objects
 
 
 
 
 // Stuff that shows up on the screen
+
+// game grid
 const table = document.getElementsByTagName('table')[0]
 
 function makeGrid(){
@@ -32,7 +35,20 @@ function makeGrid(){
 
 makeGrid()
 
-// Make things do stuff when the user does things
+
+// apple 
+
+const cells = document.getElementsByTagName('td')
+console.log(cells)
+
+setInterval(function () {
+    const randomCellIndex = Math.floor(Math.random() * cells.length);
+    cells[randomCellIndex].classList = ('apple');
+  }, 10000);
+
+
+
+  // Make things do stuff when the user does things
 
 
 
