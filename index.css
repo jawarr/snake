@@ -21,10 +21,18 @@ body {
 }
 
 
-#game {
-    background-color: lightgrey;
-    width: 80vmin;
-    height: 80vmin;
+ h1{
+    font-size: 5vmin;
+ }
+
+ h2 {
+    font-size: 3vmin;
+ }
+ 
+
+#board {
+    height: 400px;
+    width: 400px;
     box-shadow: 15px 15px 5px rgb(12, 12, 12);
 }
 

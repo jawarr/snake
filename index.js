@@ -3,25 +3,65 @@ const ctx = canvas.getContext('2d')
 
 let speed = 7
 
-function updateLoop () {
+canvas.height = 400
+canvas.width = 400
+let tileCount = 20
+let tileSize = canvas.width / tileCount - 2
+let headX = 10
+let headY = 10
+
+let xDirection = 0
+let yDirection = 0
+
+function renderGame() {
     console.log("I updated")
-    setTimeout(updateLoop, 1000/speed)
+    clearScreen()
+    drawSnake()
+    setTimeout(updateLoop, 1000 / speed)
 }
 
-// function clearScreen () {
-//     ctx.fillStyle = 'lightgrey'
-//     ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+function clearScreen() {
+    ctx.fillStyle = 'lightgrey'
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+}
+
+function drawSnake() {
+    ctx.fillStyle = 'green'
+    ctx.fillRect(headX * tileCount, headY * tileCount, tileSize, tileSize)
+}
+
+
+
+renderGame()
+
+
+
+
+// make canvas square and size to screen
+
+// function canvasSize(viewportPercent) {
+//     viewportPercent = viewportPercent / 100
+//     let viewportMinSize = Math.min(window.innerWidth, window.innerHeight)
+//     return viewportPercent * viewportMinSize
 // }
 
-// clearScreen()
+// function renderCanvas () {
+//     canvas.width = canvasSize(80)
+//     canvas.height = canvasSize(80)
+//     console.log(canvas.width, canvas.height)
+//     setTimeout(renderCanvas, 500)
+// }
 
+// renderCanvas ()
 
-updateLoop()
+// setInterval (function () {
+//     canvas.width = canvasSize(80)
+//     canvas.height = canvasSize(80)
+//     console.log(canvas.width, canvas.height)
+// }, 500)
 
-
-
-
-
+// render function 
 
 
 
