@@ -6,7 +6,7 @@
     
 html {
     background-color: #222;
-    color: #CCC;
+    color: lightgrey;
     text-shadow: 10px 10px 3px rgb(12, 12, 12);
     
 }
@@ -21,27 +21,20 @@ body {
 }
 
 
-#board {
-    background-color: #CCC;
+#game {
+    background-color: lightgrey;
     width: 80vmin;
     height: 80vmin;
     box-shadow: 15px 15px 5px rgb(12, 12, 12);
 }
 
-table {
-    border-collapse: collapse;
-}
-
-td {
-    height: 16vmin;
-    width: 16vmin;
-    background-color: lightgray;
-    border: rgb(170, 170, 170) solid .2vmin;
-    
-}
 
 .apple {
+    height: 3vmin;
+    width: 3vmin;
     background-color: red;
     border-radius: 50%;
+    box-shadow: .2vmin .2vmin .1vmin rgb(12, 12, 12);
+    
 
 }
