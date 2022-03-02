@@ -18,7 +18,7 @@ let speed = 10
 canvas.height = 400
 canvas.width = 400
 let cellCount = 20
-let cellSize = canvas.width / cellCount - 2
+let cellSize = canvas.width / cellCount
 let headX = 10
 let headY = 10
 const snakeBody = []
@@ -55,7 +55,7 @@ function clearScreen() {
 
 function renderSnake() {
     //continuously adds new body parts 
-    ctx.fillStyle = 'cornflowerblue'
+    ctx.fillStyle = 'darkgreen'
     for (let i = 0; i < snakeBody.length; i++) {
         let segment = snakeBody[i]
         ctx.fillRect(segment.x * cellCount, segment.y * cellCount, cellSize, cellSize)
@@ -69,7 +69,7 @@ function renderSnake() {
     }
 
     // draws the head starting in the middle of the screen
-    ctx.fillStyle = 'blue'
+    // ctx.fillStyle = 'blue'
     ctx.fillRect(headX * cellCount, headY * cellCount, cellSize, cellSize)
 
 }
@@ -80,7 +80,7 @@ function snakePosition() {
 }
 
 function renderApple() {
-    ctx.fillStyle = 'red'
+    ctx.fillStyle = 'crimson'
     ctx.fillRect(appleX * cellCount, appleY * cellCount, cellSize, cellSize)
 }
 
