@@ -1,35 +1,77 @@
 const canvas = document.getElementById('board')
 const ctx = canvas.getContext('2d')
+const text = document.getElementById('text')
+const scoreBoard = document.createElement('h2')
+text.appendChild(scoreBoard)
 
-let speed = 7
+
+
+class snakePart {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+let speed = 10
 
 canvas.height = 400
 canvas.width = 400
-let tileCount = 20
-let tileSize = canvas.width / tileCount - 2
+let cellCount = 20
+let cellSize = canvas.width / cellCount - 2
 let headX = 10
 let headY = 10
+const snakeBody = []
+let bodyLength = 2
+
+
+let appleX = 5
+let appleY = 5
 
 let xVelocity = 0
 let yVelocity = 0
 
+let score = 0
+
 function renderGame() {
-    console.log("I updated")
+    // console.log("I updated")
     clearScreen()
     snakePosition()
-    drawSnake()
+    appleCollision()
+    renderApple()
+    renderSnake()
+    updateScore()
     setTimeout(renderGame, 1000 / speed)
 }
 
+function updateScore () {
+    scoreBoard.innerText = `SCORE: ${bodyLength - 2}`
+}
 
 function clearScreen() {
     ctx.fillStyle = 'lightgrey'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 }
 
-function drawSnake() {
-    ctx.fillStyle = 'green'
-    ctx.fillRect(headX * tileCount, headY * tileCount, tileSize, tileSize)
+function renderSnake() {
+    //continuously adds new body parts 
+    ctx.fillStyle = 'cornflowerblue'
+    for (let i = 0; i < snakeBody.length; i++) {
+        let segment = snakeBody[i]
+        ctx.fillRect(segment.x * cellCount, segment.y * cellCount, cellSize, cellSize)
+    }
+
+    //moves the body with the head by removing the tail end 
+    //and adding new parts right after the head 
+    snakeBody.push(new snakePart(headX, headY))
+    if (snakeBody.length > bodyLength) {
+        snakeBody.shift()
+    }
+
+    // draws the head starting in the middle of the screen
+    ctx.fillStyle = 'blue'
+    ctx.fillRect(headX * cellCount, headY * cellCount, cellSize, cellSize)
+
 }
 
 function snakePosition() {
@@ -37,26 +79,51 @@ function snakePosition() {
     headY = headY + yVelocity
 }
 
+function renderApple() {
+    ctx.fillStyle = 'red'
+    ctx.fillRect(appleX * cellCount, appleY * cellCount, cellSize, cellSize)
+}
+
 document.body.addEventListener('keydown', arrowInput)
 
-function arrowInput (event) {
+function appleCollision() {
+    if (appleX === headX && appleY === headY) {
+        appleX = Math.floor(Math.random() * cellCount)
+        appleY = Math.floor(Math.random() * cellCount)
+        bodyLength++
+    }
+}
+
+function arrowInput(event) {
     //up
     if (event.keyCode == 38) {
+        if (yVelocity === 1) {
+            return
+        }
         yVelocity = -1
         xVelocity = 0
     }
     //down
     if (event.keyCode == 40) {
+        if (yVelocity === -1) {
+            return
+        }
         yVelocity = 1
         xVelocity = 0
     }
     //left
     if (event.keyCode == 37) {
+        if (xVelocity === 1) {
+            return
+        }
         yVelocity = 0
         xVelocity = -1
     }
     //right 
     if (event.keyCode == 39) {
+        if (xVelocity === -1) {
+            return
+        }
         yVelocity = 0
         xVelocity = 1
     }

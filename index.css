@@ -35,14 +35,3 @@ body {
     width: 400px;
     box-shadow: 15px 15px 5px rgb(12, 12, 12);
 }
-
-
-.apple {
-    height: 3vmin;
-    width: 3vmin;
-    background-color: red;
-    border-radius: 50%;
-    box-shadow: .2vmin .2vmin .1vmin rgb(12, 12, 12);
-    
-
-}
