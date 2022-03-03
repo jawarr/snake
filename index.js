@@ -58,7 +58,14 @@ function renderSnake() {
     ctx.fillStyle = 'darkgreen'
     for (let i = 0; i < snakeBody.length; i++) {
         let segment = snakeBody[i]
-        ctx.fillRect(segment.x * cellCount, segment.y * cellCount, cellSize, cellSize)
+        
+        //up down
+        if (xVelocity === 0 && (yVelocity === -1 || yVelocity === 1)) {
+            ctx.fillRect(segment.x * cellCount, segment.y * cellCount, cellSize, cellSize)
+        //left right
+        } else if (yVelocity === 0 && (xVelocity === -1 || xVelocity === 1)){
+            ctx.fillRect(segment.x * cellCount, segment.y * cellCount, cellSize, cellSize)
+        }
     }
 
     //moves the body with the head by removing the tail end 
@@ -71,7 +78,9 @@ function renderSnake() {
     // draws the head starting in the middle of the screen
     // ctx.fillStyle = 'blue'
     ctx.fillRect(headX * cellCount, headY * cellCount, cellSize, cellSize)
-
+    ctx.fillStyle = 'rgb(5, 56, 5)'
+    ctx.fillRect(headX * cellCount + 1, headY * cellCount - 1, cellSize / 3, cellSize / 3)
+    ctx.fillRect(headX * cellCount + 12, headY * cellCount - 1, cellSize / 3, cellSize / 3)
 }
 
 function snakePosition() {
