@@ -58,15 +58,15 @@ function renderSnake() {
     ctx.fillStyle = 'darkgreen'
     for (let i = 0; i < snakeBody.length; i++) {
         let segment = snakeBody[i]
-        
-        //up down
-        if (xVelocity === 0 && (yVelocity === -1 || yVelocity === 1)) {
-            ctx.fillRect(segment.x * cellCount, segment.y * cellCount, cellSize, cellSize)
-        //left right
-        } else if (yVelocity === 0 && (xVelocity === -1 || xVelocity === 1)){
-            ctx.fillRect(segment.x * cellCount, segment.y * cellCount, cellSize, cellSize)
+        ctx.fillRect(segment.x * cellCount, segment.y * cellCount, cellSize, cellSize)
+        // //up down
+        // if (xVelocity === 0 && (yVelocity === -1 || yVelocity === 1)) {
+        //     ctx.fillRect(segment.x * cellCount, segment.y * cellCount, cellSize, cellSize)
+        // //left right
+        // } else if (yVelocity === 0 && (xVelocity === -1 || xVelocity === 1)){
+        //     ctx.fillRect(segment.x * cellCount, segment.y * cellCount, cellSize, cellSize)
         }
-    }
+
 
     //moves the body with the head by removing the tail end 
     //and adding new parts right after the head 
