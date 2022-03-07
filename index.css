@@ -37,8 +37,6 @@ h2 {
   flex-flow: row wrap;
   justify-content: center;
   margin: 30px;
-  
-  
 }
 
 #left-right {
@@ -50,6 +48,9 @@ h2 {
 
 .button {
   filter: drop-shadow(10px 10px 3px rgb(12, 12, 12));
+  border: 3px solid lightgrey;
+  padding: 5px;
+  border-radius: 15%;
 }
 
 .button:hover {
