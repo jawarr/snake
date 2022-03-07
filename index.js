@@ -16,7 +16,7 @@ class snakePart {
     }
 }
 
-let speed = 10
+let speed = 7
 
 canvas.height = 400
 canvas.width = 400
