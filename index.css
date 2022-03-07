@@ -55,7 +55,7 @@ h2 {
 
 .button:hover {
   filter: none;
-  height: 55px;
-  width: 55px;
-  margin: 2.5px;
+  height: 59px;
+  width: 59px;
+  margin: .5px;
 }
