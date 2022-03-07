@@ -29,3 +29,29 @@ h2 {
   width: 400px;
   box-shadow: 15px 15px 5px rgb(12, 12, 12);
 }
+
+#buttons {
+  display: flex;
+  height: 225px;
+  width: 225px;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 30px;
+  
+  
+}
+
+#left-right {
+  display: flex;
+  width: 225px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button {
+  filter: drop-shadow(10px 10px 3px rgb(12, 12, 12));
+}
+
+.button:focus {
+  filter: none;
+}
