@@ -3,8 +3,11 @@ const ctx = canvas.getContext('2d')
 const text = document.getElementById('text')
 const scoreBoard = document.createElement('h2')
 text.appendChild(scoreBoard)
-
-
+const upButton = document.getElementById('up')
+const leftButton = document.getElementById('left')
+const rightButton = document.getElementById('right')
+const downButton = document.getElementById('down')
+const buttons = document.getElementsByClassName('buttons')
 
 class snakePart {
     constructor(x, y) {
@@ -127,6 +130,38 @@ function renderApple() {
 
 document.body.addEventListener('keydown', arrowInput)
 
+upButton.addEventListener('click', function(){
+    if (yVelocity === 1) {
+        return
+    }
+    yVelocity = -1
+    xVelocity = 0
+})
+
+leftButton.addEventListener('click', function(){
+    if (xVelocity === 1) {
+        return
+    }
+    yVelocity = 0
+    xVelocity = -1
+})
+
+rightButton.addEventListener('click', function(){
+    if (xVelocity === -1) {
+        return
+    }
+    yVelocity = 0
+    xVelocity = 1
+})
+
+downButton.addEventListener('click', function(){
+    if (yVelocity === -1) {
+        return
+    }
+    yVelocity = 1
+    xVelocity = 0
+})
+
 function appleCollision() {
     if (appleX === headX && appleY === headY) {
         appleX = Math.floor(Math.random() * cellCount)
@@ -215,8 +250,6 @@ renderGame()
         //     ctx.font = "50px";
         //     ctx.fillText("GAME OVER", canvas.width / 8, canvas.height / 2)
         // })
-
-
 
 
 

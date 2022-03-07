@@ -52,6 +52,9 @@ h2 {
   filter: drop-shadow(10px 10px 3px rgb(12, 12, 12));
 }
 
-.button:focus {
+.button:hover {
   filter: none;
+  height: 55px;
+  width: 55px;
+  margin: 2.5px;
 }
