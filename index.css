@@ -1,37 +1,31 @@
-
 * {
-    box-sizing: border-box;
-    font-family: 'Press Start 2P', cursive;
+  box-sizing: border-box;
+  font-family: "Press Start 2P";
 }
-    
-html {
-    background-color: #222;
-    color: lightgrey;
-    text-shadow: 10px 10px 3px rgb(12, 12, 12);
-    
-}
-   
 
+html {
+  background-color: #222;
+  color: lightgrey;
+  text-shadow: 10px 10px 3px rgb(12, 12, 12);
+}
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+h1 {
+  font-size: 5vmin;
+}
 
- h1{
-    font-size: 5vmin;
- }
-
- h2 {
-    font-size: 3vmin;
- }
- 
+h2 {
+  font-size: 3vmin;
+}
 
 #board {
-    height: 400px;
-    width: 400px;
-    box-shadow: 15px 15px 5px rgb(12, 12, 12);
+  height: 400px;
+  width: 400px;
+  box-shadow: 15px 15px 5px rgb(12, 12, 12);
 }

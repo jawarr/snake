@@ -35,13 +35,51 @@ let score = 0
 
 function renderGame() {
     // console.log("I updated")
-    clearScreen()
     snakePosition()
+    // console.log(result)
+    if (isGameOver()) return
+    clearScreen()
     appleCollision()
     renderApple()
     renderSnake()
     updateScore()
     setTimeout(renderGame, 1000 / speed)
+}
+
+function isGameOver () {
+    let gameOver = false
+    
+    if (yVelocity === 0 && xVelocity === 0) {
+        return false
+    }
+
+    //wall collision 
+    if (headX < 0 || headX === cellCount || headY < 0 || headY === cellCount){
+        gameOver = true
+    }
+    //snake collision
+    for (let i = 0; i < snakeBody.length; i++) {
+        let part = snakeBody[i]
+        if (part.x === headX && part.y === headY) {
+            gameOver = true
+            break
+        }
+    }
+    //GAME OVER text
+    if (gameOver) {
+        let gradient = ctx.createLinearGradient(0, 0, canvas.width, 0)
+        gradient.addColorStop("0", "magenta")
+        gradient.addColorStop("0.5", "blue")
+        gradient.addColorStop("1.0", "red")
+        ctx.fillStyle = gradient
+        ctx.font = '35px "Press Start 2P"';
+        ctx.shadowOffsetX = 5
+        ctx.shadowOffsetY = 5
+        ctx.shadowColor = "rgb(12, 12, 12)"
+        ctx.shadowBlur = 3
+        ctx.fillText("GAME OVER", canvas.width / 8, canvas.height / 1.9)
+    }
+    return gameOver
 }
 
 function updateScore () {
@@ -59,12 +97,6 @@ function renderSnake() {
     for (let i = 0; i < snakeBody.length; i++) {
         let segment = snakeBody[i]
         ctx.fillRect(segment.x * cellCount, segment.y * cellCount, cellSize, cellSize)
-        // //up down
-        // if (xVelocity === 0 && (yVelocity === -1 || yVelocity === 1)) {
-        //     ctx.fillRect(segment.x * cellCount, segment.y * cellCount, cellSize, cellSize)
-        // //left right
-        // } else if (yVelocity === 0 && (xVelocity === -1 || xVelocity === 1)){
-        //     ctx.fillRect(segment.x * cellCount, segment.y * cellCount, cellSize, cellSize)
         }
 
 
@@ -169,7 +201,20 @@ renderGame()
 // render function 
 
 
+   
 
+
+// let arcadeFont = new FontFace(
+        //     'PressStart2P', 
+        //     'url(https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap)'
+        // ) 
+        // arcadeFont.load().then( (font) => {
+        //     document.fonts.add(font)
+        //     console.log("font loaded")
+        //     ctx.fillStyle = "black"
+        //     ctx.font = "50px";
+        //     ctx.fillText("GAME OVER", canvas.width / 8, canvas.height / 2)
+        // })
 
 
 
