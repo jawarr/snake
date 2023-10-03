@@ -18,29 +18,16 @@ class snakePart {
 
 let speed = 7
 
-canvas.height = 400
-canvas.width = 400
-let cellCount = 20
-let cellSize = canvas.width / cellCount
-let headX = 10
-let headY = 10
-const snakeBody = []
-let bodyLength = 2
-
-
-let appleX = 5
-let appleY = 5
-
-let xVelocity = 0
-let yVelocity = 0
-
-let score = 0
+function canvasSize(viewportPercent) {
+    viewportPercent = viewportPercent / 100
+    let viewportMinSize = Math.min(window.innerWidth, window.innerHeight)
+    return viewportPercent * viewportMinSize
+}
 
 function renderGame() {
-    // console.log("I updated")
     snakePosition()
-    // console.log(result)
     if (isGameOver()) return
+    renderCanvas()
     clearScreen()
     appleCollision()
     renderApple()
@@ -48,6 +35,34 @@ function renderGame() {
     updateScore()
     setTimeout(renderGame, 1000 / speed)
 }
+
+let cellCount = 20
+let cellSize = canvas.width / cellCount
+
+
+let headX = cellCount * .5
+let headY = cellCount * .5
+const snakeBody = []
+let bodyLength = 2
+
+let appleX = cellCount * .25
+let appleY = cellCount * .25
+
+let xVelocity = 0
+let yVelocity = 0
+
+let score = 0
+
+// make canvas square and size to screen
+
+
+function renderCanvas () {
+    canvas.width = (Math.round(canvasSize(60) / 20)) * 20
+    canvas.height = (Math.round(canvasSize(60) / 20)) * 20
+    console.log (canvas.width, canvas.height)
+}
+
+
 
 function isGameOver () {
     let gameOver = false
@@ -210,22 +225,7 @@ renderGame()
 
 
 
-// make canvas square and size to screen
 
-// function canvasSize(viewportPercent) {
-//     viewportPercent = viewportPercent / 100
-//     let viewportMinSize = Math.min(window.innerWidth, window.innerHeight)
-//     return viewportPercent * viewportMinSize
-// }
-
-// function renderCanvas () {
-//     canvas.width = canvasSize(80)
-//     canvas.height = canvasSize(80)
-//     console.log(canvas.width, canvas.height)
-//     setTimeout(renderCanvas, 500)
-// }
-
-// renderCanvas ()
 
 // setInterval (function () {
 //     canvas.width = canvasSize(80)
@@ -234,22 +234,6 @@ renderGame()
 // }, 500)
 
 // render function 
-
-
-   
-
-
-// let arcadeFont = new FontFace(
-        //     'PressStart2P', 
-        //     'url(https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap)'
-        // ) 
-        // arcadeFont.load().then( (font) => {
-        //     document.fonts.add(font)
-        //     console.log("font loaded")
-        //     ctx.fillStyle = "black"
-        //     ctx.font = "50px";
-        //     ctx.fillText("GAME OVER", canvas.width / 8, canvas.height / 2)
-        // })
 
 
 

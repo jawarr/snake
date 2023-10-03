@@ -4,7 +4,7 @@
 }
 
 html {
-  background-color: #222;
+  background-color: black;
   color: lightgrey;
   text-shadow: 10px 10px 3px rgb(12, 12, 12);
 }
@@ -25,15 +25,13 @@ h2 {
 }
 
 #board {
-  height: 400px;
-  width: 400px;
   box-shadow: 15px 15px 5px rgb(12, 12, 12);
 }
 
 #buttons {
   display: flex;
-  height: 180px;
-  width: 225px;
+  height: 21vmin;
+  width: 27vmin;
   flex-flow: row wrap;
   justify-content: center;
   margin: 30px;
@@ -42,21 +40,39 @@ h2 {
 
 #left-right {
   display: flex;
-  width: 225px;
+  width: 27vmin;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .button {
   filter: drop-shadow(10px 10px 3px rgb(12, 12, 12));
-  border: 3px solid lightgrey;
+  
   padding: 5px;
   border-radius: 15%;
+  height: 7vmin;
+  width: 7vmin;
 }
 
 .button:hover {
   filter: none;
-  height: 59px;
-  width: 59px;
-  margin: .5px;
+  height: 6.5vmin;
+  width: 6.5vmin;
+  margin: .25vmin;
+}
+
+#left {
+  border: 3px solid blue;
+}
+
+#right {
+  border: 3px solid red;
+}
+
+#up {
+  border: 3px solid yellow;
+}
+
+#down {
+  border: 3px solid green;
 }
