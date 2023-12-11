@@ -30,12 +30,11 @@ h2 {
 
 #buttons {
   display: flex;
-  height: 21vmin;
-  width: 27vmin;
+  height: 225px;
+  width: 225px;
   flex-flow: row wrap;
   justify-content: center;
   margin: 30px;
-  align-content: flex-start;
 }
 
 #left-right {
