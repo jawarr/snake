@@ -55,8 +55,8 @@ let score = 0
 
 // make canvas square and size to screen
 function renderCanvas () {
-    canvas.width = (Math.round(canvasSize(60) / 20)) * 20
-    canvas.height = (Math.round(canvasSize(60) / 20)) * 20
+    ctx.canvas.width = (Math.round(canvasSize(60) / 20)) * 20
+    ctx.canvas.height = (Math.round(canvasSize(60) / 20)) * 20
     console.log (canvas.width, canvas.height)
 }
 
@@ -82,7 +82,7 @@ function isGameOver () {
             break
         }
     }
-    
+
     //GAME OVER text
     if (gameOver) {
         let gradient = ctx.createLinearGradient(0, 0, canvas.width, 0)
