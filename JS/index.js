@@ -54,8 +54,6 @@ let yVelocity = 0
 let score = 0
 
 // make canvas square and size to screen
-
-
 function renderCanvas () {
     canvas.width = (Math.round(canvasSize(60) / 20)) * 20
     canvas.height = (Math.round(canvasSize(60) / 20)) * 20
@@ -75,6 +73,7 @@ function isGameOver () {
     if (headX < 0 || headX === cellCount || headY < 0 || headY === cellCount){
         gameOver = true
     }
+
     //snake collision
     for (let i = 0; i < snakeBody.length; i++) {
         let part = snakeBody[i]
@@ -83,6 +82,7 @@ function isGameOver () {
             break
         }
     }
+    
     //GAME OVER text
     if (gameOver) {
         let gradient = ctx.createLinearGradient(0, 0, canvas.width, 0)
